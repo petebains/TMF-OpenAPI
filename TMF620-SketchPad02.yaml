@@ -2801,39 +2801,6 @@ components:
       schema:
         type: integer
   requestBodies:
-    Catalog_FVO:
-      description: The Catalog to be created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Catalog_FVO'
-          examples:
-            Catalog_Create_example:
-              $ref: '#/components/examples/Catalog_Create_example_request'
-      required: true
-    Catalog_MVO:
-      description: The Catalog to be patched
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Catalog_MVO'
-          examples:
-            Catalog_Update_example:
-              $ref: '#/components/examples/Catalog_Update_example_request'
-        application/merge-patch+json:
-          schema:
-            $ref: '#/components/schemas/Catalog_MVO'
-        application/json-patch+json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/JsonPatchOperations'
-        application/json-patch-query+json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/JsonPatchOperations'
-      required: true
     CatalogCreateEvent:
       description: Catalog create Event payload
       content:
