@@ -2851,39 +2851,6 @@ components:
             Batch:
               $ref: '#/components/examples/Batch_request'
       required: true
-    Category_FVO:
-      description: The Category to be created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Category_FVO'
-          examples:
-            Category_Create_example:
-              $ref: '#/components/examples/Category_Create_example_request'
-      required: true
-    Category_MVO:
-      description: The Category to be patched
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Category_MVO'
-          examples:
-            Category_Update_example:
-              $ref: '#/components/examples/Category_Update_example_request'
-        application/merge-patch+json:
-          schema:
-            $ref: '#/components/schemas/Category_MVO'
-        application/json-patch+json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/JsonPatchOperations'
-        application/json-patch-query+json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/JsonPatchOperations'
-      required: true
     CategoryCreateEvent:
       description: Category create Event payload
       content:
