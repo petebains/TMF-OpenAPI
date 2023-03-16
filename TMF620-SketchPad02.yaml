@@ -6,21 +6,13 @@ info:
     provide a catalog of products. 
 
     ### Operations
-
     Updated: 16 March 2023
 
     Product Catalog API performs the following operations on the resources :
 
     - Retrieve an entity or a collection of entities depending on filter criteria
 
-    - Partial update of an entity (including updating rules)
-
-    - Create an entity (including default values and creation rules)
-
-    - Delete an entity
-
-    - Manage notification of events
-  version: 5.0.0
+  version: 5.0.1
 servers:
   - url: 'https://bainz.nz/server01'
     description: production
