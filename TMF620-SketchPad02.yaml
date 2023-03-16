@@ -256,7 +256,6 @@ paths:
 
 components:
   schemas:
-    
     Addressable:
       type: object
       description: Base schema for adressable entities
