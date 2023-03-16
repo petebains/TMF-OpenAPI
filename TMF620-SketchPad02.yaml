@@ -9,8 +9,6 @@ info:
 
     Updated: 16 March 2023
 
-    By: Pete Bains
-    
     Product Catalog API performs the following operations on the resources :
 
     - Retrieve an entity or a collection of entities depending on filter criteria
