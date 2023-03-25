@@ -809,68 +809,6 @@ components:
               \ and document"
         description: "Complements the description of an element (for instance a product)\
           \ through video, pictures..."
-    BaseEvent:
-      discriminator:
-        propertyName: '@type'
-        mapping:
-          BaseEvent: '#/components/schemas/BaseEvent'
-      allOf:
-      - $ref: '#/components/schemas/Entity'
-      - type: object
-        properties:
-          event:
-            type: object
-          eventId:
-            type: string
-            description: The identifier of the notification.
-          eventTime:
-            type: string
-            description: Time of the event occurrence.
-            format: date-time
-          eventType:
-            type: string
-            description: The type of the notification.
-          correlationId:
-            type: string
-            description: The correlation id for this event.
-          domain:
-            type: string
-            description: The domain of the event.
-          title:
-            type: string
-            description: The title of the event.
-          description:
-            type: string
-            description: An explanatory of the event.
-          priority:
-            type: string
-            description: A priority.
-          timeOcurred:
-            type: string
-            description: The time the event occured.
-            format: date-time
-        description: Base event with common attributes.
-    BooleanArrayCharacteristicValueSpecification:
-      allOf:
-      - $ref: '#/components/schemas/CharacteristicValueSpecification'
-      - type: object
-        properties:
-          value:
-            type: array
-            items:
-              type: boolean
-        description: A specification for a characteristic for which the value is an
-          array booleans
-    BooleanCharacteristicValueSpecification:
-      allOf:
-      - $ref: '#/components/schemas/CharacteristicValueSpecification'
-      - type: object
-        properties:
-          value:
-            type: boolean
-            description: Value of the characteristic
-        description: A specification for a characteristic for which the value is a
-          boolean
     BundledGroupProductOffering:
       allOf:
       - $ref: '#/components/schemas/ProductOfferingRef'
@@ -1653,29 +1591,6 @@ components:
       description: Base Extensible schema for use in TMForum Open-APIs - When used
         for in a schema it means that the Entity described by the schema  MUST be
         extended with the @type
-    FloatArrayCharacteristicValueSpecification:
-      allOf:
-      - $ref: '#/components/schemas/CharacteristicValueSpecification'
-      - type: object
-        properties:
-          value:
-            type: array
-            items:
-              type: number
-              format: float
-        description: A specification for a characteristic for which the value is a
-          number array of format floating point
-    FloatCharacteristicValueSpecification:
-      allOf:
-      - $ref: '#/components/schemas/CharacteristicValueSpecification'
-      - type: object
-        properties:
-          value:
-            type: number
-            description: Value of the characteristic
-            format: float
-        description: A specification for a characteristic for which the value is a
-          floating point number
     ImportJob:
       type: object
       properties:
@@ -1704,27 +1619,6 @@ components:
           description: URL of the file containing the data to be imported
           format: uri
       description: Represents a task used to import resources from a file
-    IntegerArrayCharacteristicValueSpecification:
-      allOf:
-      - $ref: '#/components/schemas/CharacteristicValueSpecification'
-      - type: object
-        properties:
-          value:
-            type: array
-            items:
-              type: integer
-        description: A specification for a characteristic for which the value is a
-          number array of format integer
-    IntegerCharacteristicValueSpecification:
-      allOf:
-      - $ref: '#/components/schemas/CharacteristicValueSpecification'
-      - type: object
-        properties:
-          value:
-            type: integer
-            description: Value of the characteristic
-        description: A specification for a characteristic for which the value is an
-          integer number
     JobStateType:
       type: string
       description: Valid values for the state of a batch job (e.g. catalog import)
@@ -1733,29 +1627,6 @@ components:
       - Running
       - Succeeded
       - Failed
-    MapArrayCharacteristicValueSpecification:
-      allOf:
-      - $ref: '#/components/schemas/CharacteristicValueSpecification'
-      - type: object
-        properties:
-          value:
-            type: array
-            items:
-              $ref: '#/components/schemas/MapArrayCharacteristicValueSpecification_value'
-        description: A specification for a characteristic for which the value is an
-          array of mapped objects
-    MapCharacteristicValueSpecification:
-      allOf:
-      - $ref: '#/components/schemas/CharacteristicValueSpecification'
-      - type: object
-        properties:
-          value:
-            type: object
-            additionalProperties:
-              type: object
-            description: Value of the characteristic
-        description: A specification for a characteristic for which the value is a
-          mapped object
     MarketSegmentRef:
       type: object
       description: "provides references to the corresponding market segment as target\
@@ -1781,48 +1652,6 @@ components:
             \ according to the context of the API that uses this Data type"
           format: float
       description: A base / value business entity used to represent money
-    NumberArrayCharacteristicValueSpecification:
-      allOf:
-      - $ref: '#/components/schemas/CharacteristicValueSpecification'
-      - type: object
-        properties:
-          value:
-            type: array
-            items:
-              type: number
-        description: 'A specification for a characteristic for which the value is
-          a number array with no specific format '
-    NumberCharacteristicValueSpecification:
-      allOf:
-      - $ref: '#/components/schemas/CharacteristicValueSpecification'
-      - type: object
-        properties:
-          value:
-            type: number
-            description: Value of the characteristic
-        description: A specification for a characteristic for which the value is a
-          number of no specific format
-    ObjectArrayCharacteristicValueSpecification:
-      allOf:
-      - $ref: '#/components/schemas/CharacteristicValueSpecification'
-      - type: object
-        properties:
-          value:
-            type: array
-            items:
-              type: object
-        description: A specification for a characteristic for which the value is an
-          array of objects
-    ObjectCharacteristicValueSpecification:
-      allOf:
-      - $ref: '#/components/schemas/CharacteristicValueSpecification'
-      - type: object
-        properties:
-          value:
-            type: object
-            description: Value of the characteristic
-        description: A specification for a characteristic for which the value is any
-          object
     POPAlteration:
       discriminator:
         propertyName: '@type'
@@ -2979,27 +2808,6 @@ components:
             description: Service specification version
         description: "Service specification reference: ServiceSpecification(s) required\
           \ to realize a ProductSpecification."
-    StringArrayCharacteristicValueSpecification:
-      allOf:
-      - $ref: '#/components/schemas/CharacteristicValueSpecification'
-      - type: object
-        properties:
-          value:
-            type: array
-            items:
-              type: string
-        description: A specification for a characteristic for which the value is an
-          array of strings
-    StringCharacteristicValueSpecification:
-      allOf:
-      - $ref: '#/components/schemas/CharacteristicValueSpecification'
-      - type: object
-        properties:
-          value:
-            type: string
-            description: Value of the characteristic
-        description: A specification for a characteristic for which the value is a
-          string
     TargetProductSchema:
       type: object
       properties:
@@ -3098,42 +2906,6 @@ components:
           query:
             type: string
             description: additional data to be passed
-    JsonPatch:
-      required:
-      - op
-      - path
-      properties:
-        op:
-          type: string
-          description: The operation to be performed
-          enum:
-          - add
-          - remove
-          - replace
-          - move
-          - copy
-          - test
-        path:
-          type: string
-          description: A JSON-Pointer
-        value:
-          description: The value to be used within the operations.
-        from:
-          type: string
-          description: A string containing a JSON Pointer value.
-      description: A JSONPatch document as defined by RFC 6902
-    JsonPatchOperations:
-      type: array
-      description: JSONPatch Operations document as defined by RFC 6902
-      items:
-        $ref: '#/components/schemas/JsonPatch'
-    MapArrayCharacteristicValueSpecification_value:
-      type: object
-      properties:
-        value:
-          type: object
-          additionalProperties:
-            type: object
   responses:
     "200":
       description: OK
@@ -10649,39 +10421,6 @@ components:
         '@baseType': Event
         '@type': ProductSpecificationDeleteEvent
   requestBodies:
-    Catalog_FVO:
-      description: The Catalog to be created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Catalog_FVO'
-          examples:
-            Catalog_Create_example:
-              $ref: '#/components/examples/Catalog_Create_example_request'
-      required: true
-    Catalog_MVO:
-      description: The Catalog to be patched
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Catalog_MVO'
-          examples:
-            Catalog_Update_example:
-              $ref: '#/components/examples/Catalog_Update_example_request'
-        application/merge-patch+json:
-          schema:
-            $ref: '#/components/schemas/Catalog_MVO'
-        application/json-patch+json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/JsonPatchOperations'
-        application/json-patch-query+json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/JsonPatchOperations'
-      required: true
     CatalogCreateEvent:
       description: Catalog create Event payload
       content:
@@ -10732,39 +10471,6 @@ components:
             Batch:
               $ref: '#/components/examples/Batch_request'
       required: true
-    Category_FVO:
-      description: The Category to be created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Category_FVO'
-          examples:
-            Category_Create_example:
-              $ref: '#/components/examples/Category_Create_example_request'
-      required: true
-    Category_MVO:
-      description: The Category to be patched
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Category_MVO'
-          examples:
-            Category_Update_example:
-              $ref: '#/components/examples/Category_Update_example_request'
-        application/merge-patch+json:
-          schema:
-            $ref: '#/components/schemas/Category_MVO'
-        application/json-patch+json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/JsonPatchOperations'
-        application/json-patch-query+json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/JsonPatchOperations'
-      required: true
     CategoryCreateEvent:
       description: Category create Event payload
       content:
@@ -10804,42 +10510,6 @@ components:
           examples:
             CategoryDeleteEvent:
               $ref: '#/components/examples/CategoryDeleteEvent_request'
-      required: true
-    ProductOffering_FVO:
-      description: The ProductOffering to be created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ProductOffering_FVO'
-          examples:
-            Product_Offering_Create_example:
-              $ref: '#/components/examples/Product_Offering_Create_example_request'
-      required: true
-    ProductOffering_MVO:
-      description: The ProductOffering to be patched
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ProductOffering_MVO'
-          examples:
-            Product_Offering_Update_Patch_Merge:
-              $ref: '#/components/examples/Product_Offering_Update_Patch_Merge_request'
-        application/merge-patch+json:
-          schema:
-            $ref: '#/components/schemas/ProductOffering_MVO'
-        application/json-patch+json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/JsonPatchOperations'
-          examples:
-            Product_Offering_Update_JSON_Patch:
-              $ref: '#/components/examples/Product_Offering_Update_JSON_Patch_request'
-        application/json-patch-query+json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/JsonPatchOperations'
       required: true
     ProductOfferingCreateEvent:
       description: ProductOffering create Event payload
@@ -10881,42 +10551,6 @@ components:
             ProductOfferingDeleteEvent:
               $ref: '#/components/examples/ProductOfferingDeleteEvent_request'
       required: true
-    ProductOfferingPrice_FVO:
-      description: The ProductOfferingPrice to be created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ProductOfferingPrice_FVO'
-          examples:
-            Product_Offering_Price_Create_example:
-              $ref: '#/components/examples/Product_Offering_Price_Create_example_request'
-      required: true
-    ProductOfferingPrice_MVO:
-      description: The ProductOfferingPrice to be patched
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ProductOfferingPrice_MVO'
-          examples:
-            Product_Offering_Price_Update_example:
-              $ref: '#/components/examples/Product_Offering_Price_Update_example_request'
-        application/merge-patch+json:
-          schema:
-            $ref: '#/components/schemas/ProductOfferingPrice_MVO'
-        application/json-patch+json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/JsonPatchOperations'
-          examples:
-            Product_Offering_Price_Update_JSON_Patch:
-              $ref: '#/components/examples/Product_Offering_Price_Update_JSON_Patch_request'
-        application/json-patch-query+json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/JsonPatchOperations'
-      required: true
     ProductOfferingPriceCreateEvent:
       description: ProductOfferingPrice create Event payload
       content:
@@ -10957,42 +10591,6 @@ components:
             ProductOfferingPriceDeleteEvent:
               $ref: '#/components/examples/ProductOfferingPriceDeleteEvent_request'
       required: true
-    ProductSpecification_FVO:
-      description: The ProductSpecification to be created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ProductSpecification_FVO'
-          examples:
-            Product_Specification_Create_example:
-              $ref: '#/components/examples/Product_Specification_Create_example_request'
-      required: true
-    ProductSpecification_MVO:
-      description: The ProductSpecification to be patched
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ProductSpecification_MVO'
-          examples:
-            Product_Specification_Update_example:
-              $ref: '#/components/examples/Product_Specification_Update_example_request'
-        application/merge-patch+json:
-          schema:
-            $ref: '#/components/schemas/ProductSpecification_MVO'
-        application/json-patch+json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/JsonPatchOperations'
-          examples:
-            Product_Specification_Update_JSON_Patch:
-              $ref: '#/components/examples/Product_Specification_Update_JSON_Patch_request'
-        application/json-patch-query+json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/JsonPatchOperations'
-      required: true
     ProductSpecificationCreateEvent:
       description: ProductSpecification create Event payload
       content:
@@ -11032,33 +10630,6 @@ components:
           examples:
             ProductSpecificationDeleteEvent:
               $ref: '#/components/examples/ProductSpecificationDeleteEvent_request'
-      required: true
-    ImportJob_FVO:
-      description: The ImportJob to be created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ImportJob_FVO'
-          examples:
-            Import_Job_Create_example:
-              $ref: '#/components/examples/Import_Job_Create_example_request'
-      required: true
-    ExportJob_FVO:
-      description: The ExportJob to be created
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ExportJob_FVO'
-          examples:
-            Export_Job_Create_example:
-              $ref: '#/components/examples/Export_Job_Create_example_request'
-      required: true
-    Hub_FVO:
-      description: Data containing the callback endpoint to deliver the information
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Hub_FVO'
       required: true
   headers:
     X-Total-Count:
