@@ -1375,6 +1375,8 @@ components:
               $ref: '#/components/schemas/Quantity'
             recurringChargePeriod:
               type: string
+              # Pete Bains - cardinality added
+              nullable: true
               description: |-
                 The period type to repeat the application of the price
                 Could be month, week...
@@ -1892,9 +1894,12 @@ components:
         ProductPriceOffering reference. An amount, usually of money, that is asked for or allowed
         when a ProductOffering is bought, rented, or leased
       allOf:
+        - $ref: '#/components/schemas/Reference'
+      # Pete Bains - the following has been modified to be anyOf
+      anyOf:
         - $ref: '#/components/schemas/Extensible'
         - $ref: '#/components/schemas/EntityRef'
-        - $ref: '#/components/schemas/Reference'
+      
       discriminator:
         propertyName: '@type'
         mapping:
