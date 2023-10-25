@@ -20,7 +20,7 @@ info:
     - Manage notification of events
   version: 5.0.0
 servers:
-  - url: 'https://serverRoot'
+  - url: 'https://bainz.nz:8080'
 tags:
   - name: catalog
     description: Operations for Catalog Resource
